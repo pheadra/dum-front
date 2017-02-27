@@ -9,11 +9,15 @@ import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth'
 
 import Header from '../../components/Layout/Header'
 import AppNavDrawer from '../../components/Layout/Drawer'
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+
 
 
 import debug from 'debug'
 const log = debug('application:App.jsx')
 import DevTools from '../../components/DevTools'
+
 
 class App extends React.Component {
   state = {
@@ -50,6 +54,12 @@ class App extends React.Component {
       iconButton: {
         color: darkWhite,
       },
+      floatingButton: {
+        marginRight: 20,
+        position: 'fixed',
+        right :20,
+        bottom : 20
+      }
     }
 
     if (this.props.width === MEDIUM || this.props.width === LARGE) {
@@ -87,6 +97,9 @@ class App extends React.Component {
               {this.props.children}
             </div>
           </div>
+          <FloatingActionButton style={styles.floatingButton}>
+            <ContentAdd />
+          </FloatingActionButton>
         </section>
       </MuiThemeProvider>
     )

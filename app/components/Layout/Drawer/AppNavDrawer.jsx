@@ -7,6 +7,16 @@ import Divider from 'material-ui/Divider'
 
 import { spacing, typography, zIndex } from 'material-ui/styles'
 import { cyan500 } from 'material-ui/styles/colors'
+import Subheader from 'material-ui/Subheader';
+import { blue500, yellow600 } from 'material-ui/styles/colors';
+import ActionInfo from 'material-ui/svg-icons/action/info';
+import ActionAssignment from 'material-ui/svg-icons/action/assignment';
+import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
+import Toggle from 'material-ui/Toggle';
+
+import Avatar from 'material-ui/Avatar';
+import {indigo500} from 'material-ui/styles/colors'
+
 
 const styles = {
   logo: {
@@ -15,14 +25,11 @@ const styles = {
     color: typography.textFullWhite,
     lineHeight: `${spacing.desktopKeylineIncrement}px`,
     fontWeight: typography.fontWeightLight,
-    backgroundColor: cyan500,
+    backgroundColor: indigo500,
     paddingLeft: spacing.desktopGutter,
     marginBottom: 8,
   }
 }
-
-
-
 
 class AppNavDrawer extends React.Component {
   render() {
@@ -51,8 +58,12 @@ class AppNavDrawer extends React.Component {
         <SelectableList
           value={location.pathname}
         >
+          <Subheader>REQUEST LIST</Subheader>
           <ListItem
             primaryText="Request List"
+            secondaryText="Jan 10, 2014"
+            leftAvatar={<Avatar icon={<ActionAssignment />} backgroundColor={blue500} />}
+            rightIcon={<ActionInfo />}
             primaryTogglesNestedList={true}
             nestedItems={[
               <ListItem primaryText="Required Knowledge" value="/get-started/required-knowledge"/>,
@@ -62,27 +73,12 @@ class AppNavDrawer extends React.Component {
               <ListItem primaryText="Examples" value="/get-started/examples"/>,
             ]}
           />
-          <ListItem
-            primaryText="Setting"
-            primaryTogglesNestedList={true}
-            nestedItems={[
-              <ListItem primaryText="Themes" value="/customization/themes"/>,
-              <ListItem primaryText="Styles" value="/customization/styles"/>,
-              <ListItem primaryText="Colors" value="/customization/colors"/>,
-            ]}
-          />
-          <ListItem
-            primaryText="Discover More"
-            primaryTogglesNestedList={true}
-            nestedItems={[
-              <ListItem primaryText="Community" value="/discover-more/community"/>,
-              <ListItem primaryText="Contributing" value="/discover-more/contributing"/>,
-              <ListItem primaryText="Showcase" value="/discover-more/showcase"/>,
-              <ListItem primaryText="Related projects" value="/discover-more/related-projects"/>,
-            ]}
-          />
+
+          <Divider />
+          <Subheader>Server Setting</Subheader>
+          <ListItem primaryText="Enable Proxy" rightToggle={<Toggle />} />
+          <ListItem primaryText="Server Setting" />
         </SelectableList>
-        <Divider />
       </Drawer>
     )
   }

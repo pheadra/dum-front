@@ -6,6 +6,7 @@ import IconButton from 'material-ui/IconButton'
 import FlatButton from 'material-ui/FlatButton'
 import MenuItem from 'material-ui/MenuItem'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import {indigo500} from 'material-ui/styles/colors'
 
 
 import { zIndex } from 'material-ui/styles'
@@ -13,6 +14,7 @@ import { zIndex } from 'material-ui/styles'
 const styles = {
   appBar: {
     position: 'fixed',
+    backgroundColor: indigo500,
     zIndex: zIndex.appBar + 1,
     top: 0
   }
